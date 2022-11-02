@@ -40,6 +40,7 @@ app.use (
     `),
     rootValue : {
       events: () => {
+        // pass arguments like title: 'Test' to get particular events but here we have not defined any arguments so it will return all
         return Event.find()
           .then(events => {
             return events.map(event => {
@@ -58,6 +59,7 @@ app.use (
           date: new Date(args.eventInput.date)
         });
         return event
+          // save will write our data into database
           .save()
           .then(result => {
             console.log(result);

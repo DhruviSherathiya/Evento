@@ -7,9 +7,10 @@ mutation{
 }
 
 mutation{
-	createEvent(eventInput: {title:"Event 1", description: "This is trial event",price:500.0,date:"2022-09-26T08:47:15.494Z"}){
+	createEvent(eventInput: {title:"Event 1", description: "This is a trial event",price:500.0,date:"2022-09-26T08:47:15.494Z"}){
     title
     price
   }  
 }
+
 
