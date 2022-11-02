@@ -2,12 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
+
 const mongoose = require('mongoose');
 const app = express();
 const Event = require('./models/event');
 app.use(bodyParser.json());
 
-app.use (
+const graphQlSchema = require('./graphql/schema/index');
+const graphQlResolvers = require('./graphql/resolvers/index');
+
+ /** app.use (
     '/graphql', 
     graphqlHTTP({
         schema : buildSchema(`
@@ -74,6 +78,16 @@ app.use (
     graphiql: true,
     })
 );
+**/ 
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema: graphQlSchema,
+    rootValue: graphQlResolvers,
+    graphiql: true
+  })
+);
+
 
 app.get('/',(req,res,next) => {
     res.send('Hello World');
