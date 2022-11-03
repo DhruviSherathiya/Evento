@@ -13,4 +13,24 @@ mutation{
   }  
 }
 
+mutation{
+  bookEvent(eventId: "636269c29f7af2134137106f"){
+    _id
+    createdAt
+  }
+}
+
+query{
+  bookings{
+    createdAt
+    event{
+      title
+      creator{
+        email
+      }
+    }
+  }
+}
+
+
 
