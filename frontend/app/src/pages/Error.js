@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ErrorPage extends Component {
-  render() {
-    return <h1>Page Not Found</h1>;
-  }
+function Error() {
+    return (
+        <div id="wrapper">
+            <img src="https://i.imgur.com/qIufhof.png" alt="404" />
+            <div id="info">
+                <h3>This page could not be found</h3>
+            </div>
+        </div >
+    )
 }
 
-export default ErrorPage;
+export default Error;

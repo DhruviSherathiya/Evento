@@ -1,25 +1,9 @@
-import { Outlet, Link } from "react-router-dom";
+import React, { Component } from 'react';
 
-const Home = () => {
-  return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Login</Link>
-          </li>
-          <li>
-            <Link to="/bookings">Bookings</Link>
-          </li>
-          <li>
-            <Link to="/event">Events</Link>
-          </li>
-        </ul>
-      </nav>
+class HomePage extends Component {
+  render() {
+    return <h1>The Home Page</h1>;
+  }
+}
 
-      <Outlet />
-    </>
-  )
-};
-
-export default Home;
+export default HomePage;
