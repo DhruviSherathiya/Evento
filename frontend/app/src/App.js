@@ -39,13 +39,13 @@ class App extends Component {
             <Routes>
                 { !this.state.token && <Route path="/" exact element={<AuthPage />}/>}
                 { this.state.token && <Route path="/" exact element={<EventsPage />}/>}
-  
+
                 {!this.state.token && (
-                  <Route path="/auth" element={AuthPage} />
+                  <Route path="/auth" exact element={<AuthPage />} />
                 )}
-                <Route path="/events" component={EventsPage} />
+                <Route path="/events" exact element={<EventsPage />} />
                 {this.state.token && (
-                  <Route path="/bookings" component={BookingsPage} />
+                  <Route path="/bookings" exact element={<BookingsPage />} />
                 )}
                 <Route path="*" element={<NotFound />} />
             </Routes>
