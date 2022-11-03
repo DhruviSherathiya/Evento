@@ -13,6 +13,19 @@ const graphQlResolvers = require('./graphql/resolvers/index');
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  // every host every client can send request
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  // post,get and option request can be done
+  // browser automatically do options request before do post request
+  res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 app.use(isAuth);
 
 app.use(
@@ -23,7 +36,6 @@ app.use(
     graphiql: true
   })
 );
-
 
 app.get('/',(req,res,next) => {
     res.send('Hello World');
