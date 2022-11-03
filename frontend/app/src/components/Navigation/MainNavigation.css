@@ -13,7 +13,7 @@
   .main-navigation__logo h1 {
     margin: 0;
     font-size: 1.5rem;
-    color: #F56F46; 
+    color: #F56F46;
   }
   
   .main-navigation__items {
@@ -26,6 +26,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    align-items: center;
   }
   
   .main-navigation__items li {
@@ -33,13 +34,23 @@
     color: #fff;
   }
   
-  .main-navigation__items a {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  .main-navigation__items a:hover,
-  .main-navigation__items a:active,
-  .main-navigation__items a.active {
+.main-navigation__items a,
+.main-navigation__items button {
+  text-decoration: none;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  font: inherit;
+  background: transparent;
+  cursor: pointer;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.main-navigation__items a:hover,
+.main-navigation__items a:active,
+.main-navigation__items a.active,
+.main-navigation__items button:hover,
+.main-navigation__items button:active {
       color: #454F59;
   }
