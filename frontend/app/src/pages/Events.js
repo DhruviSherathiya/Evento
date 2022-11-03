@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import '../index.css';
 
 class EventsPage extends Component {
   render() {
-    return <h1>The Events Page</h1>;
+    return <div>
+      <button className='btn'>Create Event</button>
+    </div>;
   }
 }
 

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AuthPage from './pages/Auth';
 import BookingsPage from './pages/Booking';
 import EventsPage from './pages/Events';
+import ProfilePage from './pages/Profile';
 import NotFound from './pages/NotFound';
 import MainNavigation from './components/Navigation/MainNavigation';
 import AuthContext from './context/auth-context';
@@ -46,6 +47,9 @@ class App extends Component {
                 <Route path="/events" exact element={<EventsPage />} />
                 {this.state.token && (
                   <Route path="/bookings" exact element={<BookingsPage />} />
+                )}
+                {this.state.token && (
+                  <Route path="/profile" exact element={<ProfilePage />} />
                 )}
                 <Route path="*" element={<NotFound />} />
             </Routes>
