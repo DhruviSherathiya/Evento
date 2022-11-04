@@ -55,8 +55,8 @@ class EventsPage extends Component {
 
     const requestBody = {
       query: `
-          mutation {
-            createEvent(eventInput: {title: "${title}", description: "${description}", price: ${price}, date: "${date}"}) {
+          mutation CreateEvent($title: String!, $desc: String!, $price: Float!, $date: String!) {
+            createEvent(eventInput: {title: $title, description: $desc, price: $price, date: $date}) {
               _id
               title
               description
@@ -64,7 +64,13 @@ class EventsPage extends Component {
               price
             }
           }
-        `
+        `,
+        variables: {
+          title: title,
+          desc: description,
+          price: price,
+          date: date
+        }
     };
 
     const token = this.context.token;
@@ -154,8 +160,7 @@ class EventsPage extends Component {
         }
       });
   }
-  
-  // to display details of the events
+
   showDetailHandler = eventId => {
     this.setState(prevState => {
       const selectedEvent = prevState.events.find(e => e._id === eventId);
@@ -170,14 +175,17 @@ class EventsPage extends Component {
     }
     const requestBody = {
       query: `
-          mutation {
-            bookEvent(eventId: "${this.state.selectedEvent._id}") {
+          mutation BookEvent($id: ID!) {
+            bookEvent(eventId: $id) {
               _id
              createdAt
              updatedAt
             }
           }
-        `
+        `,
+        variables: {
+          id: this.state.selectedEvent._id
+        }
     };
 
     fetch('http://localhost:8000/graphql', {
@@ -251,7 +259,7 @@ class EventsPage extends Component {
             canConfirm
             onCancel={this.modalCancelHandler}
             onConfirm={this.bookEventHandler}
-            confirmText="Book"
+            confirmText={this.context.token ? 'Book' : 'Confirm'}
           >
             <h1>{this.state.selectedEvent.title}</h1>
             <h2>
@@ -275,7 +283,6 @@ class EventsPage extends Component {
           <EventList
             events={this.state.events}
             authUserId={this.context.userId}
-            // coming from eventlist 
             onViewDetail={this.showDetailHandler}
           />
         )}

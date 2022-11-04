@@ -4,10 +4,12 @@ import AuthPage from './pages/Auth';
 import BookingsPage from './pages/Booking';
 import EventsPage from './pages/Events';
 import ProfilePage from './pages/Profile';
+import HomePage from './pages/Home';
 import NotFound from './pages/NotFound';
 import MainNavigation from './components/Navigation/MainNavigation';
 import AuthContext from './context/auth-context';
 import './App.css';
+
 
 class App extends Component {
   state = {
@@ -39,10 +41,10 @@ class App extends Component {
           <main className="main-content">
             <Routes>
                 { !this.state.token && <Route path="/" exact element={<AuthPage />}/>}
-                { this.state.token && <Route path="/" exact element={<EventsPage />}/>}
+                { this.state.token && <Route path="/" exact element={<HomePage />}/>}
 
                 {!this.state.token && (
-                  <Route path="/auth" exact element={<AuthPage />} />
+                  <Route path="/" exact element={<AuthPage />} />
                 )}
                 <Route path="/events" exact element={<EventsPage />} />
                 {this.state.token && (
