@@ -7,7 +7,7 @@ const eventItem = props => (
     <div>
       <h1>{props.title}</h1>
       <h2>
-        ${props.price} - {new Date(props.date).toLocaleDateString()}
+        Rs.{props.price} - {new Date(props.date).toLocaleDateString()}
       </h2>
     </div>
     <div>
