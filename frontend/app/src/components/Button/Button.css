@@ -1,0 +1,16 @@
+.btn {
+    background: #172153;
+    font: inherit;
+    border: 1px solid #01d1d1;
+    border-radius: 3px;
+    padding: 0.25rem 1rem;
+    margin-right: 1rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn:hover,.btn:active {
+      background: #f56f46;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../pages/Profile.css';
 
+
 class HomePage extends Component {
   render() {
     return (
@@ -10,11 +11,15 @@ class HomePage extends Component {
                 <h3>dhruvi@test.com</h3>
             </div>
             <div className='calender'>
-
             </div>
         </div>
         <div className='div2'>
-            <h3>Create Event</h3>
+        <div className="events-control">
+          <p>Share your own Events!</p>
+          <button className="btn">
+            Create Event
+          </button>
+        </div>
         </div>
     </div>
     )
