@@ -28,6 +28,7 @@ class BookingsPage extends Component {
                _id
                title
                date
+               price
              }
             }
           }
@@ -110,12 +111,13 @@ class BookingsPage extends Component {
         ) : (
           <BookingList
             bookings={this.state.bookings}
-            onDelete={this.deleteBookingHandler}
-          />
+            onDelete={this.deleteBookingHandler} 
+            />
         )}
       </React.Fragment>
     );
   }
 }
+
 
 export default BookingsPage;
