@@ -1,0 +1,23 @@
+.events__list-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #172153;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: #454f59 0px 5px 15px;
+  }
+  
+  .events__list-item h1 {
+    font-size: 1.5rem;
+    color: #f56f46;
+  }
+  
+  .events__list-item h2 {
+      
+      padding-top: 5px;
+      font-size: 1rem;
+      color: #fff;
+  }
+  
+  
