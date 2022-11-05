@@ -10,7 +10,10 @@ const createdEventItem = props => (
         <h2>
           Price : Rs.{props.price} 
         </h2>
-        <h2>Join us on {new Date(props.date).toLocaleDateString()}</h2>
+        <h2>{new Date(props.date).toLocaleDateString()}</h2>
+      </div>
+      <div className="bookings__item-actions">
+            <button className="btn" onClick={props.onDelete.bind(this, props.eventId)}>Cancel</button>
       </div>
     </li>
     )}

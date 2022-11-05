@@ -14,7 +14,7 @@ const createdEventList = props => {
         userId={props.authUserId}
         creatorId={event.creator._id}
         // below will coming from eventitem and go to events.js
-        onDetail={props.onViewDetail}
+        onDelete={props.onEventDelete}
       />
     );
   });
