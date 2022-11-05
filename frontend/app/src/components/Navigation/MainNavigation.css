@@ -10,15 +10,15 @@
     align-items: center;
   }
   
-  .main-navigation__logo h1 {
+  .main-navigation__logo a {
     margin: 0;
     font-size: 1.5rem;
     color: #F56F46;
+    text-decoration: none;
   }
   
   .main-navigation__items {
     margin-left: 1.5rem;
-    
   }
   
   .main-navigation__items ul {
