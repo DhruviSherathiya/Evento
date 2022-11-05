@@ -170,48 +170,7 @@ class EventsPage extends Component {
     });
   };
 
-  bookEventHandler = () => {
-    if (!this.context.token) {
-      this.setState({ selectedEvent: null });
-      return;
-    }
-    const requestBody = {
-      query: `
-          mutation BookEvent($id: ID!) {
-            bookEvent(eventId: $id) {
-              _id
-             createdAt
-             updatedAt
-            }
-          }
-        `,
-        variables: {
-          id: this.state.selectedEvent._id
-        }
-    };
-
-    fetch('http://localhost:8000/graphql', {
-      method: 'POST',
-      body: JSON.stringify(requestBody),
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.context.token
-      }
-    })
-      .then(res => {
-        if (res.status !== 200 && res.status !== 201) {
-          throw new Error('Failed!');
-        }
-        return res.json();
-      })
-      .then(resData => {
-        console.log(resData);
-        this.setState({ selectedEvent: null });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  
 
   componentWillUnmount() {
     this.isActive = false;
@@ -254,23 +213,7 @@ class EventsPage extends Component {
             </form>
           </Modal>
         )}
-        {this.state.selectedEvent && (
-          <Modal
-            title={this.state.selectedEvent.title}
-            canCancel
-            canConfirm
-            onCancel={this.modalCancelHandler}
-            onConfirm={this.bookEventHandler}
-            confirmText={this.context.token ? 'Book' : 'Confirm'}
-          >
-            <h1>{this.state.selectedEvent.title}</h1>
-            <h2>
-              ${this.state.selectedEvent.price} -{' '}
-              {new Date(this.state.selectedEvent.date).toLocaleDateString()}
-            </h2>
-            <p>{this.state.selectedEvent.description}</p>
-          </Modal>
-        )}
+        
         {this.context.token && (
           <div className="events-control">
             <p>Share your own Events!</p>
