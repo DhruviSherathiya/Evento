@@ -285,7 +285,7 @@ class EventsPage extends Component {
             authUserId={this.context.userId}
             onViewDetail={this.showDetailHandler}
           />
-        )}
+        )} 
       </React.Fragment>
     );
   }

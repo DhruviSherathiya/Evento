@@ -44,7 +44,7 @@ app.get('/',(req,res,next) => {
 mongoose
 .connect(`mongodb+srv://${process.env.MONGO_USER}:${
     process.env.MONGO_PASSWORD
-  }@cluster0.fzfi3bl.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
+  }@evento.8lbhimd.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(8000);
