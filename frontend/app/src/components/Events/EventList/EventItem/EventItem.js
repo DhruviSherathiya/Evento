@@ -7,8 +7,9 @@ const eventItem = props => (
     <div>
       <h1>{props.title}</h1>
       <h2>
-        ${props.price} - {new Date(props.date).toLocaleDateString()}
+        Price : Rs.{props.price} 
       </h2>
+      <h2>Join us on {new Date(props.date).toLocaleDateString()}</h2>
     </div>
     <div>
       {props.userId === props.creatorId ? (
